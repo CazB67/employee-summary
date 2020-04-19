@@ -20,6 +20,8 @@ console.log(`${myManager.id}`);
 main();
 
 let managers = [];
+let engineers = [];
+let interns = [];
 
 //Main function to call other functions and develop a flow
 async function main() {
@@ -28,18 +30,26 @@ async function main() {
     const answers = await promptMainUI();
     
         if(`${answers.role}` === "Manager") {
-            let empDetails = await promptEmployee();
-            let manDetails = await promptManager();
-            let myManager = new Manager(`${empDetails.name}`,`${empDetails.id}`, `${empDetails.email}`, `${manDetails.officenumber}`);
+            let employeeDetails = await promptEmployee();
+            let managerDetails = await promptManager();
+            let myManager = new Manager(`${employeeDetails.name}`,`${employeeDetails.id}`, `${employeeDetails.email}`, `${managerDetails.officenumber}`);
             managers.push(myManager);
             console.log(managers);
 
         }else if(`${answers.role}` === "Intern") {
-            await promptEmployee();
-            await promptIntern();
+            let employeeDetails = await promptEmployee();
+            let internDetails = await promptIntern();
+            let myIntern = new Intern(`${employeeDetails.name}`,`${employeeDetails.id}`, `${employeeDetails.email}`, `${internDetails.school}`);
+            interns.push(myIntern);
+            console.log(interns);
+           
         }else if(`${answers.role}` === "Engineer") {
-            await promptEmployee();
-            await promptEngineer();
+            let employeeDetails = await promptEmployee();
+            let engineerDetails = await promptEngineer();
+            let myEngineer = new Engineer(`${employeeDetails.name}`,`${employeeDetails.id}`, `${employeeDetails.email}`, `${engineerDetails.github}`)
+            engineers.push(myEngineer);
+            console.log(engineers);
+
         }else{
             loadingEmployeeDetails = false;
         }
