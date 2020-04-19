@@ -9,21 +9,11 @@ const OUTPUT_DIR = path.resolve(__dirname, "output")
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
-//Testing in the console remember to delete
-let myManager = new Manager("Tom", "5667", "example@gmail.com", "340343434");
-console.log(`${myManager.getName()}`);
-console.log(`${myManager.getRole()}`);
-console.log(`${myManager.officeNumber}`);
-console.log(`${myManager.email}`);
-console.log(`${myManager.id}`);
-
 main();
-
-let employees = [];
-
 
 //Main function to call other functions and develop a flow
 async function main() {
+    const employees = [];
     let loadingEmployeeDetails = true;
    while(loadingEmployeeDetails) {
     const answers = await promptMainUI();
@@ -40,21 +30,22 @@ async function main() {
             let internDetails = await promptIntern();
             let myIntern = new Intern(`${employeeDetails.name}`,`${employeeDetails.id}`, `${employeeDetails.email}`, `${internDetails.school}`);
             employees.push(myIntern);
-            console.log(employees);
+            
            
         }else if(`${answers.role}` === "Engineer") {
             let employeeDetails = await promptEmployee();
             let engineerDetails = await promptEngineer();
             let myEngineer = new Engineer(`${employeeDetails.name}`,`${employeeDetails.id}`, `${employeeDetails.email}`, `${engineerDetails.github}`)
             employees.push(myEngineer);
-            console.log(employees);
+            
 
         }else{
             loadingEmployeeDetails = false;
-            //render();
+           
         }
    }
-
+   render(employees);
+   console.log(employees);
 }
 
 // Use inquirer to work out what type of employee to add and gather common information to all classes.
@@ -94,7 +85,6 @@ function promptMainUI() {
     
       ]);
     }
-  
 
   function promptManager() {
     return inquirer.prompt([
