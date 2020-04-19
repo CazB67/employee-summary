@@ -23,7 +23,7 @@ async function main() {
             let managerDetails = await promptManager();
             let myManager = new Manager(`${employeeDetails.name}`,`${employeeDetails.id}`, `${employeeDetails.email}`, `${managerDetails.officenumber}`);
             employees.push(myManager);
-            console.log(employees);
+            //console.log(employees);
 
         }else if(`${answers.role}` === "Intern") {
             let employeeDetails = await promptEmployee();
@@ -45,7 +45,7 @@ async function main() {
         }
    }
    render(employees);
-   console.log(employees);
+   //console.log(employees);
 }
 
 // Use inquirer to work out what type of employee to add and gather common information to all classes.
