@@ -22,6 +22,7 @@ main();
 //Main function to call other functions and develop a flow
 async function main() {
    const answers = await promptEmployeeDetails();
+   await promptEmployee();
     if(`${answers.role}` === "Manager") {
         promptManager();
     }else if(`${answers.role}` === "Intern") {
@@ -47,33 +48,40 @@ function promptEmployeeDetails() {
     ]);
   }
 
+  function promptEmployee(){
+    return inquirer.prompt([
+  
+        {
+          type: "input",
+          name: "name",
+          message: "Add name:",
+        },
+  
+        {
+          type: "input",
+          name: "id",
+          message: "Add ID:",
+        },
+  
+        {
+          type: "input",
+          name: "email",
+          message: "Add email:",
+        }
+    
+      ]);
+    }
+  
+
   function promptManager() {
     return inquirer.prompt([
 
       {
         type: "input",
         name: "officenumber",
-        message: "Add office number",
-      },
-
-      {
-        type: "input",
-        name: "name",
-        message: "Add name",
-      },
-
-      {
-        type: "input",
-        name: "id",
-        message: "Add ID?",
-      },
-
-      {
-        type: "input",
-        name: "email",
-        message: "Add email",
+        message: "Add office number:",
       }
-  
+
     ]);
   }
 
@@ -83,27 +91,9 @@ function promptEmployeeDetails() {
       {
         type: "input",
         name: "school",
-        message: "Add school name",
-      },
-
-      {
-        type: "input",
-        name: "name",
-        message: "Add name",
-      },
-
-      {
-        type: "input",
-        name: "id",
-        message: "Add ID?",
-      },
-
-      {
-        type: "input",
-        name: "email",
-        message: "Add email",
+        message: "Add school name:",
       }
-  
+
     ]);
   }
 
@@ -113,26 +103,9 @@ function promptEmployeeDetails() {
       {
         type: "input",
         name: "github",
-        message: "Add gitHub username",
-      },
-
-      {
-        type: "input",
-        name: "name",
-        message: "Add name",
-      },
-
-      {
-        type: "input",
-        name: "id",
-        message: "Add ID?",
-      },
-
-      {
-        type: "input",
-        name: "email",
-        message: "Add email",
+        message: "Add gitHub username:",
       }
+
   
     ]);
   }
