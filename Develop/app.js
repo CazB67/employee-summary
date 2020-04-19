@@ -10,15 +10,27 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 //Testing in the console
-let myManager = new Manager("Tom", "5667", "example@gmail.com.com", "340343434");
+let myManager = new Manager("Tom", "5667", "example@gmail.com", "340343434");
 console.log(`${myManager.getName()}`);
 console.log(`${myManager.getRole()}`);
 console.log(`${myManager.officeNumber}`);
 console.log(`${myManager.email}`);
 console.log(`${myManager.id}`);
 
+main();
+
+async function main() {
+   const answers = await promptEmployeeDetails();
+   console.log(`${answers.role}`);
+    if(`${answers.role}` === "Manager") {
+        console.log("Hi");
+        promptManager();
+    }
+
+}
+
 // Use inquirer to work out what type of employee to add and gather common information to all classes.
-function promptUser() {
+function promptEmployeeDetails() {
     return inquirer.prompt([
   
       {
@@ -26,6 +38,18 @@ function promptUser() {
         name: "role",
         message: "What type of employee do you want to add?",
         choices: [ "Engineer", "Manager", "Intern" ]
+      }
+  
+    ]);
+  }
+
+  function promptManager() {
+    return inquirer.prompt([
+
+      {
+        type: "input",
+        name: "officenumber",
+        message: "Add office number",
       },
 
       {
@@ -49,18 +73,6 @@ function promptUser() {
     ]);
   }
 
-  function promptManager() {
-    return inquirer.prompt([
-
-      {
-        type: "input",
-        name: "officenumber",
-        message: "Add office number",
-      }
-  
-    ]);
-  }
-
   function promptIntern() {
     return inquirer.prompt([
 
@@ -68,6 +80,24 @@ function promptUser() {
         type: "input",
         name: "school",
         message: "Add school name",
+      },
+
+      {
+        type: "input",
+        name: "name",
+        message: "Add name",
+      },
+
+      {
+        type: "input",
+        name: "id",
+        message: "Add ID?",
+      },
+
+      {
+        type: "input",
+        name: "email",
+        message: "Add email",
       }
   
     ]);
@@ -80,11 +110,30 @@ function promptUser() {
         type: "input",
         name: "github",
         message: "Add gitHub username",
+      },
+
+      {
+        type: "input",
+        name: "name",
+        message: "Add name",
+      },
+
+      {
+        type: "input",
+        name: "id",
+        message: "Add ID?",
+      },
+
+      {
+        type: "input",
+        name: "email",
+        message: "Add email",
       }
   
     ]);
   }
-promptUser();
+
+
 /*
 // and to create objects for each team member (using the correct classes as blueprints!)
 // After the user has input all employees desired, call the `render` function (required
