@@ -9,13 +9,31 @@ const OUTPUT_DIR = path.resolve(__dirname, "output")
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
-
-let myManager = new Manager("Tom", "5667", "example@SpeechGrammarList.com", "340343434");
+//Testing in the console
+let myManager = new Manager("Tom", "5667", "example@gmail.com.com", "340343434");
 console.log(`${myManager.getName()}`);
-/*//console.log(myManager.getRole());
-// Write code to use inquirer to gather information about the development team members,
+console.log(`${myManager.getRole()}`);
+console.log(`${myManager.officeNumber}`);
+console.log(`${myManager.email}`);
+console.log(`${myManager.id}`);
+
+// Use inquirer to work out what type of employee to add
+function promptUser() {
+    return inquirer.prompt([
+  
+      {
+        type: "checkbox",
+        name: "role",
+        message: "What type of employee do you want to add?",
+        choices: [ "Engineer", "Manager", "Intern" ]
+      }
+  
+    ]);
+  }
+
+promptUser();
+/*
 // and to create objects for each team member (using the correct classes as blueprints!)
-​
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
