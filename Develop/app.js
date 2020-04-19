@@ -49,8 +49,41 @@ function promptUser() {
     ]);
   }
 
+  function promptManager() {
+    return inquirer.prompt([
 
+      {
+        type: "input",
+        name: "officenumber",
+        message: "Add office number",
+      }
+  
+    ]);
+  }
 
+  function promptIntern() {
+    return inquirer.prompt([
+
+      {
+        type: "input",
+        name: "school",
+        message: "Add school name",
+      }
+  
+    ]);
+  }
+
+  function promptEngineer() {
+    return inquirer.prompt([
+
+      {
+        type: "input",
+        name: "github",
+        message: "Add gitHub username",
+      }
+  
+    ]);
+  }
 promptUser();
 /*
 // and to create objects for each team member (using the correct classes as blueprints!)
