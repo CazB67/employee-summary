@@ -19,13 +19,17 @@ console.log(`${myManager.id}`);
 
 main();
 
+//Main function to call other functions and develop a flow
 async function main() {
    const answers = await promptEmployeeDetails();
-   console.log(`${answers.role}`);
     if(`${answers.role}` === "Manager") {
-        console.log("Hi");
         promptManager();
+    }else if(`${answers.role}` === "Intern") {
+        promptIntern();
+    }else {
+        promptEngineer();
     }
+
 
 }
 
