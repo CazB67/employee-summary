@@ -17,7 +17,7 @@ console.log(`${myManager.officeNumber}`);
 console.log(`${myManager.email}`);
 console.log(`${myManager.id}`);
 
-// Use inquirer to work out what type of employee to add
+// Use inquirer to work out what type of employee to add and gather common information to all classes.
 function promptUser() {
     return inquirer.prompt([
   
@@ -26,10 +26,30 @@ function promptUser() {
         name: "role",
         message: "What type of employee do you want to add?",
         choices: [ "Engineer", "Manager", "Intern" ]
+      },
+
+      {
+        type: "input",
+        name: "name",
+        message: "Add name",
+      },
+
+      {
+        type: "input",
+        name: "id",
+        message: "Add ID?",
+      },
+
+      {
+        type: "input",
+        name: "email",
+        message: "Add email",
       }
   
     ]);
   }
+
+
 
 promptUser();
 /*
