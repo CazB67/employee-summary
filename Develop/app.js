@@ -19,30 +19,43 @@ console.log(`${myManager.id}`);
 
 main();
 
+let managers = [];
+
 //Main function to call other functions and develop a flow
 async function main() {
-   const answers = await promptEmployeeDetails();
-   await promptEmployee();
-    if(`${answers.role}` === "Manager") {
-        promptManager();
-    }else if(`${answers.role}` === "Intern") {
-        promptIntern();
-    }else {
-        promptEngineer();
-    }
+    let loadingEmployeeDetails = true;
+   while(loadingEmployeeDetails) {
+    const answers = await promptMainUI();
+    
+        if(`${answers.role}` === "Manager") {
+            let empDetails = await promptEmployee();
+            let manDetails = await promptManager();
+            let myManager = new Manager(`${empDetails.name}`,`${empDetails.id}`, `${empDetails.email}`, `${manDetails.officenumber}`);
+            managers.push(myManager);
+            console.log(managers);
 
+        }else if(`${answers.role}` === "Intern") {
+            await promptEmployee();
+            await promptIntern();
+        }else if(`${answers.role}` === "Engineer") {
+            await promptEmployee();
+            await promptEngineer();
+        }else{
+            loadingEmployeeDetails = false;
+        }
+   }
 
 }
 
 // Use inquirer to work out what type of employee to add and gather common information to all classes.
-function promptEmployeeDetails() {
+function promptMainUI() {
     return inquirer.prompt([
   
       {
         type: "checkbox",
         name: "role",
         message: "What type of employee do you want to add?",
-        choices: [ "Engineer", "Manager", "Intern" ]
+        choices: [ "Engineer", "Manager", "Intern", "No more employees to add" ]
       }
   
     ]);
