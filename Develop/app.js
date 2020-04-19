@@ -9,7 +9,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output")
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
-//Testing in the console
+//Testing in the console remember to delete
 let myManager = new Manager("Tom", "5667", "example@gmail.com", "340343434");
 console.log(`${myManager.getName()}`);
 console.log(`${myManager.getRole()}`);
@@ -19,9 +19,8 @@ console.log(`${myManager.id}`);
 
 main();
 
-let managers = [];
-let engineers = [];
-let interns = [];
+let employees = [];
+
 
 //Main function to call other functions and develop a flow
 async function main() {
@@ -33,25 +32,26 @@ async function main() {
             let employeeDetails = await promptEmployee();
             let managerDetails = await promptManager();
             let myManager = new Manager(`${employeeDetails.name}`,`${employeeDetails.id}`, `${employeeDetails.email}`, `${managerDetails.officenumber}`);
-            managers.push(myManager);
-            console.log(managers);
+            employees.push(myManager);
+            console.log(employees);
 
         }else if(`${answers.role}` === "Intern") {
             let employeeDetails = await promptEmployee();
             let internDetails = await promptIntern();
             let myIntern = new Intern(`${employeeDetails.name}`,`${employeeDetails.id}`, `${employeeDetails.email}`, `${internDetails.school}`);
-            interns.push(myIntern);
-            console.log(interns);
+            employees.push(myIntern);
+            console.log(employees);
            
         }else if(`${answers.role}` === "Engineer") {
             let employeeDetails = await promptEmployee();
             let engineerDetails = await promptEngineer();
             let myEngineer = new Engineer(`${employeeDetails.name}`,`${employeeDetails.id}`, `${employeeDetails.email}`, `${engineerDetails.github}`)
-            engineers.push(myEngineer);
-            console.log(engineers);
+            employees.push(myEngineer);
+            console.log(employees);
 
         }else{
             loadingEmployeeDetails = false;
+            //render();
         }
    }
 
@@ -135,7 +135,6 @@ function promptMainUI() {
 
 
 /*
-// and to create objects for each team member (using the correct classes as blueprints!)
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
