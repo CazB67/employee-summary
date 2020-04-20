@@ -2,9 +2,11 @@
 Object Oriented Programming and Test Driven Development
 
 ## Description
-![GitHub repo size](https://img.shields.io/github/repo-size/cazb67/employee-summary) 
+![GitHub repo size](https://img.shields.io/github/repo-size/cazb67/employee-summary)  
 
-![GitHub issues](https://img.shields.io/github/issues/cazb67/employee-summary)
+
+![GitHub issues](https://img.shields.io/github/issues/cazb67/employee-summary)  
+
 
 The task was to build a software engineering team generator command line application. The application prompts the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns. This application also needed to pass all unit tests. When the user has completed building the team, the application will create an HTML file that displays a nicely formatted team roster based on the information provided by the user. 
 
@@ -33,10 +35,14 @@ To use this application run the following in the command line:
 ```
 node app.js
 ```
-The user is then prompted with a series of questions like so.
+The user is then prompted with a series of questions like so.  
+
+
 ![Command line output](3.PNG)
 
-When the user has finished answering the questions a team.html file is generated with all the information. It looks like so.
+When the user has finished answering the questions a team.html file is generated with all the information. It looks like so.  
+
+
 ![End product](3.PNG)
 
 ## Technologies
