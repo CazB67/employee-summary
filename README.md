@@ -2,7 +2,8 @@
 Object Oriented Programming and Test Driven Development
 
 ## Description
-![GitHub repo size](https://img.shields.io/github/repo-size/cazb67/employee-summary) 
+![GitHub repo size](https://img.shields.io/github/repo-size/cazb67/
+employee-summary) 
 
 ## Table of Contents
 1. [Installation](#Installation)

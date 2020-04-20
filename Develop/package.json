@@ -7,7 +7,6 @@
     "lib": "lib",
     "test": "test"
   },
-  
   "scripts": {
     "test": "jest --verbose test/*"
   },
