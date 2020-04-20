@@ -37,7 +37,7 @@ node app.js
 ```
 The user is then prompted with a series of questions like so.  
 
-![End product](./assets/cli.PNG)
+![Command Line](./assets/cli.png)
 
 
 When the user has finished answering the questions a `team.html` file is generated with all the information. It looks like so.  
