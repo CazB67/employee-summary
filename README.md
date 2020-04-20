@@ -37,7 +37,7 @@ node app.js
 ```
 The user is then prompted with a series of questions like so.  
 
-![Command Line](./assets/cli.png)
+![Command Line](./Assets/cli.PNG)
 
 
 When the user has finished answering the questions a `team.html` file is generated with all the information. It looks like so.  
@@ -58,7 +58,7 @@ NPM, Node js, fs, inquirer, Javascript, Jest(for testing)
 ![Coveralls github](https://img.shields.io/coveralls/github/cazb67/employee-summary)  
 
 
-![Tests](./assets/tests.PNG)
+![Tests](./Assets/tests.PNG)
 
 To run tests, run the following command:
 ​
