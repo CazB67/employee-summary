@@ -37,13 +37,13 @@ node app.js
 ```
 The user is then prompted with a series of questions like so.  
 
-
-![Command line output](3.PNG)
-
-When the user has finished answering the questions a team.html file is generated with all the information. It looks like so.  
+![End product](./assets/cli.PNG)
 
 
-![End product](3.PNG)
+When the user has finished answering the questions a `team.html` file is generated with all the information. It looks like so.  
+
+
+
 
 ## Technologies
 NPM, Node js, fs, inquirer, Javascript, Jest(for testing)
@@ -55,7 +55,11 @@ NPM, Node js, fs, inquirer, Javascript, Jest(for testing)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 
 ## Tests 
-![Coveralls github](https://img.shields.io/coveralls/github/cazb67/employee-summary)
+![Coveralls github](https://img.shields.io/coveralls/github/cazb67/employee-summary)  
+
+
+![Tests](./assets/tests.PNG)
+
 To run tests, run the following command:
 ​
 ```
