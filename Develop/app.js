@@ -10,6 +10,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const util = require("util");
 const writeFileAsync = util.promisify(fs.writeFile);
 const render = require("./lib/htmlRenderer");
+const axios = require("axios");
 
 main();
 
@@ -56,7 +57,7 @@ function promptMainUI() {
     return inquirer.prompt([
   
       {
-        type: "checkbox",
+        type: "list",
         name: "role",
         message: "What type of employee do you want to add?",
         choices: [ "Engineer", "Manager", "Intern", "No more employees to add" ]
@@ -72,18 +73,21 @@ function promptMainUI() {
           type: "input",
           name: "name",
           message: "Add name:",
+          validate: validateName
         },
   
         {
           type: "input",
           name: "id",
           message: "Add ID:",
+          validate: validateId
         },
   
         {
           type: "input",
           name: "email",
           message: "Add email:",
+          validate: validateEmail
         }
     
       ]);
@@ -96,6 +100,7 @@ function promptMainUI() {
         type: "input",
         name: "officenumber",
         message: "Add office number:",
+        validate: validateNumber
       }
 
     ]);
@@ -108,6 +113,7 @@ function promptMainUI() {
         type: "input",
         name: "school",
         message: "Add school name:",
+        validate: validateSchool
       }
 
     ]);
@@ -120,8 +126,51 @@ function promptMainUI() {
         type: "input",
         name: "github",
         message: "Add gitHub username:",
+        validate: validateGithub
       }
 
   
     ]);
+  }
+
+  function validateName(name){
+    let isValid = isNaN(name);
+    return isValid || "Name is a word! Re-enter name.";
+}
+
+  function validateNumber(officenumber){
+    let isValid = !isNaN(officenumber)  && officenumber >= 0;
+    return isValid || "Office number should be a positive number!";
+  }
+
+  function validateEmail(email) {
+   let isValid = (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email));
+    return isValid || "You have entered an invalid email address!";
+  
+}
+
+function validateId(id){
+  let isValid = !isNaN(id) && id >= 0 ;
+  return isValid || "ID is a number! Re-enter id.";
+}
+
+function validateSchool(school){
+  let isValid = isNaN(school);
+  return isValid || "School is a word! Re-enter school.";
+}
+
+async function validateGithub(github) {
+  let isValid = true;
+  try {
+  
+    const queryUrl = `https://api.github.com/users/${github.toLowerCase()}`;
+    const gitHubProfile = await axios.get(queryUrl); 
+    return isValid;
+  }
+  catch (err) {
+      isValid = false; 
+      return "Github profile does not exist!";
+  }
+    //return isValid || "Github profile does not exist!";
+  
   }

@@ -43,13 +43,13 @@ The user is then prompted with a series of questions like so.
 When the user has finished answering the questions a `team.html` file is generated with all the information. It looks like so.  
 
 
-
-
 ## Technologies
 NPM, Node js, fs, inquirer, Javascript, Jest(for testing)
 
 ## Credits
 - Team at UWA Coding Bootcamp
+- This website for how to use inquirer to validate responses https://github.com/sameeri/Code-Inquirer/wiki/Asking-questions-away-with-Inquirer!
+- Email validation help - https://www.w3resource.com/javascript/form/email-validation.php
 
 ## Contributing
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
