@@ -159,18 +159,19 @@ function validateSchool(school){
   return isValid || "School is a word! Re-enter school.";
 }
 
+//Application is stalling after github username has been retreived
 async function validateGithub(github) {
   let isValid = true;
   try {
   
     const queryUrl = `https://api.github.com/users/${github.toLowerCase()}`;
-    const gitHubProfile = await axios.get(queryUrl); 
+    await axios.get(queryUrl); 
     return isValid;
   }
   catch (err) {
       isValid = false; 
       return "Github profile does not exist!";
   }
-    //return isValid || "Github profile does not exist!";
-  
+    
   }
+  

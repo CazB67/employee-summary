@@ -1,4 +1,4 @@
-# Employee Summary
+# Team Generator - Employee Summary
 Object Oriented Programming and Test Driven Development
 
 ## Description
