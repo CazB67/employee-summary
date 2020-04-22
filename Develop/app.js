@@ -60,7 +60,7 @@ function promptMainUI() {
         type: "list",
         name: "role",
         message: "What type of employee do you want to add?",
-        choices: [ "Engineer", "Manager", "Intern", "No more employees to add" ]
+        choices: [ "Manager", "Engineer", "Intern", "No more employees to add" ]
       }
   
     ]);

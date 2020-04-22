@@ -2,7 +2,6 @@ const path = require("path");
 const fs = require("fs");
 
 const templatesDir = path.resolve(__dirname, "../templates");
-
 const render = employees => {
   const html = [];
 
@@ -27,7 +26,6 @@ const render = employees => {
 };
 
 const renderManager = manager => {
-  
   let template = fs.readFileSync(path.resolve(templatesDir, "manager.html"), "utf8");
   template = replacePlaceholders(template, "name", manager.getName());
   template = replacePlaceholders(template, "role", manager.getRole());
