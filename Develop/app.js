@@ -18,15 +18,18 @@ main();
 async function main() {
     const employees = [];
     let loadingEmployeeDetails = true;
-   while(loadingEmployeeDetails) {
+  
+    while(loadingEmployeeDetails) {
     const answers = await promptMainUI();
     
         if(`${answers.role}` === "Manager") {
             let employeeDetails = await promptEmployee();
             let managerDetails = await promptManager();
+            //Initialise a new manager using details provided through inquirer
             let myManager = new Manager(`${employeeDetails.name}`,`${employeeDetails.id}`, `${employeeDetails.email}`, `${managerDetails.officenumber}`);
+            //Add new manager to employees array
             employees.push(myManager);
-            //console.log(employees);
+            
 
         }else if(`${answers.role}` === "Intern") {
             let employeeDetails = await promptEmployee();
@@ -43,13 +46,18 @@ async function main() {
             
 
         }else{
+            //To stop the while loop so no more questions are asked
             loadingEmployeeDetails = false;
            
         }
    }
+
+   //Call the render function passing in the employees array
    const renderEmployees = render(employees);
+
+   //After the render function has been run write to team.html file
    await writeFileAsync(outputPath, renderEmployees);
-   //console.log(employees);
+   
 }
 
 // Use inquirer to work out what type of employee to add and gather common information to all classes.
@@ -66,6 +74,7 @@ function promptMainUI() {
     ]);
   }
 
+  //Inquirer prompts to get info on employees
   function promptEmployee(){
     return inquirer.prompt([
   
@@ -133,6 +142,7 @@ function promptMainUI() {
     ]);
   }
 
+  //Functions to validate info received from inquirer so that it is in the correct form.
   function validateName(name){
     let isValid = isNaN(name);
     return isValid || "Name is a word! Re-enter name.";
