@@ -20,6 +20,7 @@ async function main() {
     let loadingEmployeeDetails = true;
   
     while(loadingEmployeeDetails) {
+      
     const answers = await promptMainUI();
     
         if(`${answers.role}` === "Manager") {
@@ -43,7 +44,6 @@ async function main() {
             let engineerDetails = await promptEngineer();
             let myEngineer = new Engineer(`${employeeDetails.name}`,`${employeeDetails.id}`, `${employeeDetails.email}`, `${engineerDetails.github}`)
             employees.push(myEngineer);
-            
 
         }else{
             //To stop the while loop so no more questions are asked
@@ -61,9 +61,10 @@ async function main() {
 }
 
 // Use inquirer to work out what type of employee to add and gather common information to all classes.
-function promptMainUI() {
+async function promptMainUI() {
     return inquirer.prompt([
-  
+      
+
       {
         type: "list",
         name: "role",
@@ -102,7 +103,7 @@ function promptMainUI() {
       ]);
     }
 
-  function promptManager() {
+    function promptManager() {
     return inquirer.prompt([
 
       {
@@ -136,6 +137,7 @@ function promptMainUI() {
         name: "github",
         message: "Add gitHub username:",
         validate: validateGithub
+        
       }
 
   
@@ -171,15 +173,15 @@ function validateSchool(school){
 
 //Application is stalling after github username has been retreived
 async function validateGithub(github) {
-  let isValid = true;
+  
   try {
   
     const queryUrl = `https://api.github.com/users/${github.toLowerCase()}`;
     await axios.get(queryUrl); 
-    return isValid;
+    return true;
   }
   catch (err) {
-      isValid = false; 
+    console.log(err);
       return "Github profile does not exist!";
   }
     

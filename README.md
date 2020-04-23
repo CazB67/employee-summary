@@ -66,6 +66,8 @@ To run tests, run the following command:
 ```
 npm run test
 ```
+## Bugs
+There is an asynchronous issue with github validation. After a new engineer has been added. The app gets stuck on the next employee's name. The problem is resolved by pressing enter but I would rather it not be there.
 
 ## License
 ![License](https://img.shields.io/github/license/cazb67/employee-summary)
