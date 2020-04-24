@@ -161,8 +161,17 @@ async function promptMainUI() {
   
 }
 
+let idArray = [];
 function validateId(id){
   let isValid = !isNaN(id) && id >= 0 ;
+  if(isValid === true){
+    for(let i=0; i< idArray.length; i++){
+      if(id === idArray[i]){
+        return "ID must be unique! Re-enter id.";
+      }
+    }
+    idArray.push(id);
+  }
   return isValid || "ID is a number! Re-enter id.";
 }
 
