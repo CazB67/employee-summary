@@ -146,8 +146,11 @@ async function promptMainUI() {
 
   //Functions to validate info received from inquirer so that it is in the correct form.
   function validateName(name){
-    let isValid = isNaN(name);
-    return isValid || "Name is a word! Re-enter name.";
+    let letters = /^[A-Za-z]+$/;
+    if(name.match(letters)) {
+      return true;
+    }
+    return "Name must be a word! Re-enter name.";
 }
 
   function validateNumber(officenumber){
