@@ -146,7 +146,7 @@ async function promptMainUI() {
 
   //Functions to validate info received from inquirer so that it is in the correct form.
   function validateName(name){
-    let letters = /^[A-Za-z]+$/;
+    let letters = /^[A-Z a-z]+$/;
     if(name.match(letters)) {
       return true;
     }
