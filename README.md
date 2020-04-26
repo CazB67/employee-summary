@@ -55,8 +55,6 @@ NPM, Node js, fs, inquirer, Javascript, Jest(for testing)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 
 ## Tests 
-![Coveralls github](https://img.shields.io/coveralls/github/cazb67/employee-summary)  
-
 
 ![Tests](./Assets/tests.PNG)
 
@@ -69,4 +67,4 @@ npm run test
 There is an asynchronous issue with github validation I think. After a new engineer has been added. The app gets stuck on the next employee's name. The problem is resolved by pressing enter but I would rather it not be there.
 
 ## License
-![License](https://img.shields.io/github/license/cazb67/employee-summary)
+![License](https://img.shields.io/github/license/cazb67/employee-summary)  
