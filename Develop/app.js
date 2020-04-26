@@ -123,7 +123,7 @@ async function promptMainUI() {
         type: "input",
         name: "school",
         message: "Add school name:",
-        validate: validateSchool
+        validate: validateName
       }
 
     ]);
@@ -178,12 +178,7 @@ function validateId(id){
   return isValid || "ID is a number! Re-enter id.";
 }
 
-function validateSchool(school){
-  let isValid = isNaN(school);
-  return isValid || "School is a word! Re-enter school.";
-}
-
-//Application is stalling after github username has been retreived
+//Application is stalling after github username has been retreived (on the next employee's name)
 async function validateGithub(github) {
   
   try {
