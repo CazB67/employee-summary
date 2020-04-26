@@ -196,6 +196,6 @@ async function validateGithub(github) {
     console.log(err);
       return "Github profile does not exist!";
   }
-    .then return true;
+    
   }
   
