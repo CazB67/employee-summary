@@ -188,8 +188,7 @@ async function validateGithub(github) {
     return true;
   }
   catch (err) {
-    console.log(err);
-      return "Github profile does not exist!";
+      return "Github profile does not exist! Try again";
   }
     
   }
