@@ -18,7 +18,7 @@ The task was to build a software engineering team generator command line applica
 5. [Licence](#License)
 6. [Contributing](#Contributing)
 7. [Tests](#Tests)
-8. [Questions](#Questions)
+
 
 ## Installation
 1. Write code to build out Engineer, Intern and Manager classes 
