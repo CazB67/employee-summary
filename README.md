@@ -15,9 +15,10 @@ The task was to build a software engineering team generator command line applica
 2. [Usage](#Usage)
 3. [Technologies](#Technologies)
 4. [Credits](#Credits)
-5. [Licence](#License)
-6. [Contributing](#Contributing)
-7. [Tests](#Tests)
+5. [Contributing](#Contributing)
+6. [Tests](#Tests)
+7. [Bugs](#Bugs)
+8. [Licence](#License)
 
 
 ## Installation
