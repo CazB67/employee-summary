@@ -20,19 +20,19 @@ async function main() {
     let loadingEmployeeDetails = true;
     while(loadingEmployeeDetails) { 
       const answers = await promptMainUI();
-        if(`${answers.role}` === "Manager") {
+        if(answers.role === "Manager") {
             let employeeDetails = await promptEmployee();
             let managerDetails = await promptManager();
             //Initialise a new manager using details provided through inquirer
             let myManager = new Manager(`${employeeDetails.name}`,`${employeeDetails.id}`, `${employeeDetails.email}`, `${managerDetails.officenumber}`);
             //Add new manager to employees array
             employees.push(myManager);
-        }else if(`${answers.role}` === "Intern") {
+        }else if(answers.role === "Intern") {
             let employeeDetails = await promptEmployee();
             let internDetails = await promptIntern();
             let myIntern = new Intern(`${employeeDetails.name}`,`${employeeDetails.id}`, `${employeeDetails.email}`, `${internDetails.school}`);
             employees.push(myIntern);
-        }else if(`${answers.role}` === "Engineer") {
+        }else if(answers.role === "Engineer") {
             let employeeDetails = await promptEmployee();
             let engineerDetails = await promptEngineer();
             let myEngineer = new Engineer(`${employeeDetails.name}`,`${employeeDetails.id}`, `${employeeDetails.email}`, `${engineerDetails.github}`)
