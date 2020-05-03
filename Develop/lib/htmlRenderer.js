@@ -1,23 +1,20 @@
 const path = require("path");
 const fs = require("fs");
-
 const templatesDir = path.resolve(__dirname, "../templates");
+
 const render = employees => {
   const html = [];
-
- for (let i =0; i< employees.length; i++) {
-  if (employees[i].getRole() === "Manager") {
-    html.push(renderManager(employees[i]));
-  }else if (employees[i].getRole() === "Engineer") {
-    html.push(renderEngineer(employees[i]));
-  }else {
-    html.push(renderIntern(employees[i]));
-  }
-  
-}
-  return renderMain(html.join(""));
-  
-};
+    for(let i =0; i< employees.length; i++) {
+      if (employees[i].getRole() === "Manager") {
+        html.push(renderManager(employees[i]));
+      }else if (employees[i].getRole() === "Engineer") {
+        html.push(renderEngineer(employees[i]));
+      }else {
+        html.push(renderIntern(employees[i]));
+      } 
+    }
+      return renderMain(html.join(""));
+    };
 
 const renderManager = manager => {
   let template = fs.readFileSync(path.resolve(templatesDir, "manager.html"), "utf8");

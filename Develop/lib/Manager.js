@@ -2,23 +2,19 @@
 const Employee = require("./Employee")
 
 //Create a Manager class that inherits Employee class and adds officeNumber property and over rides getRole method.
-class Manager extends Employee
-{
-    constructor(name, id, email, officeNumber)
-    {
+class Manager extends Employee {
+    constructor(name, id, email, officeNumber) {
         super(name, id, email);
         this.officeNumber = officeNumber;
     }
-    getRole() 
-    {
+
+    getRole() {
         return "Manager";
     }
 
-    getOfficeNumber() 
-    {
+    getOfficeNumber() {
         return this.officeNumber;
     }
-
 }
 
 //Exports the manager class
