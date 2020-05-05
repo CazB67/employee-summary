@@ -8,8 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest --verbose test/*",
-    "coveralls": "jest coverage && cat./coverage/lcov.info | coveralls"
+    "test": "jest --verbose test/*"
   },
   "repository": {
     "type": "git",
