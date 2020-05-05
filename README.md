@@ -3,8 +3,8 @@ Object Oriented Programming and Test Driven Development
 
 ## Description
 ![GitHub repo size](https://img.shields.io/github/repo-size/cazb67/employee-summary)  
-
-
+[![Build Status](https://travis-ci.org/cazb67/employee-summary.svg?branch=master)](https://travis-ci.org/cazb67/employee-summary)
+[![Coverage Status](https://coveralls.io/repos/github/cazb67/employee-summary/badge.svg?branch=master)](https://coveralls.io/repos/github/cazb67/employee-summary?branch=master)
 ![GitHub issues](https://img.shields.io/github/issues/cazb67/employee-summary)  
 
 
